@@ -17,7 +17,7 @@ class fastq_pysickle:
 
     
     def calculate_trim_adresses(self):
-        '''return the addresses at the 5' and 3' ends at which to trim the     sequence'''
+        '''return the addresses at the 5' and 3' ends at which to trim the sequence'''
         seq_len = len(self.seq)
         if seq_len<self.min_len:
             self.three_addr = -1

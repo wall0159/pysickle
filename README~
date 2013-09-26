@@ -1,7 +1,5 @@
 Pysickle is a python implementation of sickle (https://github.com/najoshi/sickle)
 
-NB. PLEASE NOTE THAT THIS CODE IS CURRENTLY NOT WORKING. THERE IS A BUG IN THE MOVING-AVERAGE FILTER THAT REJECTS EVERY SEQUENCE.
-
 Pysickle takes files in the FASTQ format and uses a sliding windows and a predetermined threshold quality value to determine 5' and 3' trimming.
 
 Pysickle takes an input fastq file and outputs a trimmed version of that file. It also has options to change the length and quality thresholds for trimming, as well as disabling 5'-trimming and enabling removal of sequences with Ns.
