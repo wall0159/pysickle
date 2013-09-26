@@ -17,13 +17,8 @@ class fastq_rec:
 #        '''determine the encoding of the phred score, and populate the dictionary
 #        guessing phred type may return AmbiguousPhredError'''
         
-    def calculate_trim_adresses(self, threshold):
+    def calculate_trim_adresses(self):
         '''return the addresses at the 5' and 3' ends at which to trim the sequence'''
-        # input
-        self.phred_nums
-        # use the MA filter
-        filtered_numeric_quality_score = filter_on_quality()
-        
         # output
         self.5_addr
         self.3_addr

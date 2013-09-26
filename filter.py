@@ -3,10 +3,6 @@ from Bio import SeqIO
 
 # functions to perform moving average filtering of the phred scores and return indices at which to trim
 
-# use biopython for this
-def convert_phred_scores_to_numbers(phred_scores):
-    return numeric_quality_score
-    
 # return a moving average filtered set of phred scores
 def filter_on_quality(numeric_quality_score, window_width):
     # 

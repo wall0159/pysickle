@@ -1,4 +1,5 @@
-import biopython
+import Bio
+from Bio import SeqIO
 
 # functions to perform moving average filtering of the phred scores and return indices at which to trim
 
