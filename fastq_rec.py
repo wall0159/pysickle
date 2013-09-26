@@ -1,5 +1,5 @@
 from Bio import SeqIO
-from scipy import pandas as pd
+
 
 class fastq_pysickle:
     def __init__(self,infile, threshold, phred_type, window_size, outfile):
@@ -38,16 +38,16 @@ class fastq_pysickle:
         filtered_numeric_quality_score = filter_on_quality()
         
         # output
-        self.5_addr
-        self.3_addr
+        self.addr_5
+        self.addr_3
         
     def trim(self):
         '''use the calculated addresses to trim the fastq file'''
-        self.trimmed_seq = self.seq[self.5_addr:self.3_addr]
-        self.trimmed_phred = self.phred[self.5_addr:self.3_addr]
+        self.trimmed_seq = self.seq[self.addr_5:self.addr_3]
+        self.trimmed_phred = self.phred[self.addr_5:self.addr_3]
 
         
-    def write_to_output(self)
+    def write_to_output(self):
         '''write out this record to output (file or stdout)'''
         print(self.id)
         print(self.trimmed_seq)
