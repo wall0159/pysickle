@@ -8,6 +8,9 @@ class fastq_pysickle:
         self.phred_type =phred_type
         self.window_size = window_size
         self.outfile = outfile
+        # if the user has specified a filename, redirect stdout to that file
+        if len(self.outfile) > 0:
+            sys.stdout = open(self.outfile)
 
     def fastq(self, filename):
         '''load the fastq file and pass all the information with quality scores converted to Phred Values'''
@@ -37,9 +40,19 @@ class fastq_pysickle:
         
     def trim(self):
         '''use the calculated addresses to trim the fastq file'''
+        #inputs
+        self.seq
+        self.phred
+        #outputs
+        self.trimmed_seq
+        self.trimmed_phred
         
     def write_to_output(self)
-        '''write out this record to the
+        '''write out this record to output (file or stdout)'''
+        print(self.id)
+        print(self.trimmed_seq)
+        print('@')
+        print(self.trimmed_phred)
     
     
     
