@@ -9,6 +9,7 @@ class fastq_pysickle:
         '''load the fastq file and pass all the information with quality scores converted to Phred Values'''
 		# hard coded to take in only illumina scores but can be extended to work with others
 		for record in SeqIO.parse(filename, "fastq-illumina"):
+			self.rec = record.format("fastq-illumina")
 			self.id = record.id
 			self.seq = record.seq
 			self.phred = record.letter_annotations["phred_quality"]
