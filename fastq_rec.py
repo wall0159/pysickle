@@ -14,15 +14,16 @@ class fastq_pysickle:
         if len(self.outfile) > 0:
             sys.stdout = open(self.outfile)
 
-    def fastq(self, filename):
+    def fastq(self):
         '''load the fastq file and pass all the information with quality scores converted to Phred Values'''
 		# hard coded to take in only illumina scores but can be extended to work with others
-		for record in SeqIO.parse(filename, "fastq-illumina"):
-			self.rec = record.format("fastq-illumina")
+		for record in SeqIO.parse(self.infile, "fastq-illumina"):
+			#self.rec = record.format("fastq-illumina")
 			self.id = record.id
 			self.seq = record.seq
 			self.phred = record.letter_annotations["phred_quality"]
 			calculate_trim_adresses(self)
+			trim(self)
 			write_to_output(self)
 
 #    def phred_id(self):
@@ -54,7 +55,7 @@ class fastq_pysickle:
         '''write out this record to output (file or stdout)'''
         print(self.id)
         print(self.trimmed_seq)
-        print('@')
+        print('+')
         print(self.trimmed_phred)
     
     
