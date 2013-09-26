@@ -32,16 +32,60 @@ class fastq_pysickle:
 #        guessing phred type may return AmbiguousPhredError'''
 
         
-    def calculate_trim_adresses(self, threshold):
-        '''return the addresses at the 5' and 3' ends at which to trim the sequence'''
-        # input
-        self.phred_nums
-        # use the MA filter
-        filtered_numeric_quality_score = filter_on_quality()
-        
-        # output
-        self.addr_5
-        self.addr_3
+	def calculate_trim_adresses(self, q_threshold, l_threshold):
+		'''return the addresses at the 5' and 3' ends at which to trim the 	sequence'''
+		seq_len = len(self.seq)
+		if seq_len<l_threshold:
+			self.three_addr = -1
+			self.five_addr = -1
+			return
+		if seq_len!=len(self.phred_nums):
+			self.three_addr = -1
+			self.five_addr = -1
+			return
+		win_size = int(0.1*seq_len)
+		if win_size==0:
+			win_size = seq_len
+		win_total = sum(self.phred_nums[:seq_len])
+		win_start=0
+		win_total=0
+		three_prime_cut = seq_len
+		five_prime_cut = 0
+		found_five_prime = 0
+		i = 0;
+		while i <= seq_len - win_size:
+			win_ave = float(win_total)/win_size
+			if i==0 and win_ave>=q_threshold:
+				found_five_prime = 1
+			if found_five_prime==0 and win_avw>=q_threshold:
+				j = win_start
+				while j<win_start+win_size:
+					if self.phred_nums[j]>=q_threshold:
+						five_prime_cut = j
+						break
+					j += 1
+	    		found_five_prime = 1
+			if (win_avg<q_threshold or win_start+win_size>seq_len) and found_five_prime == 1:
+				j = win_start
+				while j<win_start+win_size:
+					if self.phred_nums[j]<q_threshold:
+						three_prime_cut = j
+						if three_prime_cut-five_prime_cut<l_threshold:
+							three_prime_cut = -1
+							five_prime_cut = -1
+							break
+						break
+					j += 1
+			win_total -= self.phred_nums[win_start]
+			if win_start+win_size<seq_len:
+				win_total += self.phred_nums[win_start+win_size]
+			win_start += 1
+			i += 1
+		if found_five_prime==0:
+			three_prime_cut = -1
+			five_prime_cut = -1
+		self.three_addr = three_prime_cut
+		self.five_addr = five_prime_cut
         
     def trim(self):
         '''use the calculated addresses to trim the fastq file'''
