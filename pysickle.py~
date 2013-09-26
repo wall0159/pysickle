@@ -1,22 +1,43 @@
-#/usr/bin/python
+#!/usr/bin/python
 
-import filter.py
+help_str = '''
+HELP:
+#> pysickle infile (threshold) (window_size) (outfile)
+(bracketed arguments are optional)
+
+pysickle is a program to trim the 3' and 5' ends of a read based on the phred 
+score. A slinding window is used to determine the cut-off points, based on the
+average phred score (at that location) dropping below a user-specified 
+threshold. If no output file is provided, output is written to stdout.
+'''
+
+import pysickle_filter
 import sys
 
-# process args
+### process arguments
 args = sys.argv[1:]
-filename = args[1]
-
-# test file exists, test file appropriate
+infile    = args[1]
 try:
-   with open('filename'): pass
-except IOError:
-   print 'Oh dear.'
-if filename[-6:] != '.fastq':
-    except IOError
-    print "this program requires a fastq file as input"
+    threshold   = args[2]
+    
+window_size = args[3]
+output_file = args[4]
 
-# program input and output fastqfilenames as arguments
+### ############## ###
+### test arguments ###
+### ############## ###
+# test infile exists, test file appropriate
+if infile[-6:] != '.fastq':
+    raise IOError("this program requires a fastq file as input")
+try:
+    file_handle = open('infile')
+except IOError:
+    print 'Could not open fastq file'
+
+
+
+
+# program input and output fastqinfiles as arguments
 
 # open the file
 

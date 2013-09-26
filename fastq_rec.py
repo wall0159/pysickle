@@ -1,17 +1,18 @@
 import biopython
 from scipy import pandas as pd
 
-class fastq_rec:
+class fastq_pysickle:
     def __init__:
     
-#    def fastq(self,file_in):
-#        '''method to parse the fastq file'''
-        
-    def get_read(self):
-        '''load one read from the fastq file'''
-        self.seq
-        self.phred
-        self.phred_nums
+    def fastq(self,file_in):
+        '''method to parse the fastq file -- john is working on this, using getIO from Biopython'''
+
+# this may not be         
+#    def get_read(self):
+#        '''load one read from the fastq file'''
+#        self.seq
+#        self.phred
+#        self.phred_nums
     
 #    def phred_id(self):
 #        '''determine the encoding of the phred score, and populate the dictionary
