@@ -1,0 +1,9 @@
+
+
+# functions to perform moving average filtering of the phred scores and return indices at which to trim
+
+# return a moving average filtered set of phred scores
+def filter_on_quality(phred_scores, window_width):
+
+# return indexes at which to trim the sequence
+def trim_on_quality(filtered_phred_scores, threshold):
