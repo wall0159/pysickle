@@ -44,12 +44,10 @@ class fastq_pysickle:
         
     def trim(self):
         '''use the calculated addresses to trim the fastq file'''
-        #inputs
-        self.seq
-        self.phred
-        #outputs
-        self.trimmed_seq
-        self.trimmed_phred
+      
+		self.trimmed_seq = self.seq[self.5_addr:self.3_addr]
+		self.trimmed_phred = self.phred[self.5_addr:self.3_addr]
+
         
     def write_to_output(self)
         '''write out this record to output (file or stdout)'''
