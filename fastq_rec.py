@@ -7,7 +7,7 @@ class fastq_pysickle:
     def fastq(self,file_in):
         '''method to parse the fastq file -- john is working on this, using getIO from Biopython'''
 
-# this may not be         
+# this may not be needed       
 #    def get_read(self):
 #        '''load one read from the fastq file'''
 #        self.seq
