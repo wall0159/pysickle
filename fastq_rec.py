@@ -1,7 +1,7 @@
 import biopython
 from scipy import pandas as pd
 
-class pysickle:
+class fastq_rec:
     def __init__:
     
 #    def fastq(self,file_in):
