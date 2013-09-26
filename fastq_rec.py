@@ -3,12 +3,14 @@ from scipy import pandas as pd
 
 class fastq_pysickle:
     def __init__(self,infile, threshold, phred_type, window_size, outfile):
+        # add the arguments to the object for acess from other methods
         self.infile = infile
         self.threshold = threshold
         self.phred_type =phred_type
         self.window_size = window_size
         self.outfile = outfile
         # if the user has specified a filename, redirect stdout to that file
+        # outfile will be an empty string if the user hasn't specified anything
         if len(self.outfile) > 0:
             sys.stdout = open(self.outfile)
 
