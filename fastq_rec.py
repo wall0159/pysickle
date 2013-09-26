@@ -1,21 +1,31 @@
-import biopython
+from Bio import SeqIO
 from scipy import pandas as pd
 
-class fastq_rec:
-    def __init__:
-    
-#    def fastq(self,file_in):
-#        '''method to parse the fastq file'''
-        
-    def get_read(self):
-        '''load one read from the fastq file'''
-        self.seq
-        self.phred
-        self.phred_nums
-    
+class fastq_pysickle:
+    def __init__(self,infile, threshold, phred_type, window_size, outfile):
+        self.infile = infile
+        self.threshold = threshold
+        self.phred_type =phred_type
+        self.window_size = window_size
+        self.outfile = outfile
+        # if the user has specified a filename, redirect stdout to that file
+        if len(self.outfile) > 0:
+            sys.stdout = open(self.outfile)
+
+    def fastq(self, filename):
+        '''load the fastq file and pass all the information with quality scores converted to Phred Values'''
+		# hard coded to take in only illumina scores but can be extended to work with others
+		for record in SeqIO.parse(filename, "fastq-illumina"):
+			self.id = record.id
+			self.seq = record.seq
+			self.phred = record.letter_annotations["phred_quality"]
+			calculate_trim_adresses(self)
+			write_to_output(self)
+
 #    def phred_id(self):
 #        '''determine the encoding of the phred score, and populate the dictionary
 #        guessing phred type may return AmbiguousPhredError'''
+
         
     def calculate_trim_adresses(self, threshold):
         '''return the addresses at the 5' and 3' ends at which to trim the sequence'''
@@ -30,8 +40,19 @@ class fastq_rec:
         
     def trim(self):
         '''use the calculated addresses to trim the fastq file'''
+        #inputs
+        self.seq
+        self.phred
+        #outputs
+        self.trimmed_seq
+        self.trimmed_phred
         
-    
+    def write_to_output(self)
+        '''write out this record to output (file or stdout)'''
+        print(self.id)
+        print(self.trimmed_seq)
+        print('@')
+        print(self.trimmed_phred)
     
     
     
