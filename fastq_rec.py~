@@ -5,14 +5,6 @@ class fastq_pysickle:
     def __init__:
     
 
-<<<<<<< HEAD
-# this may not be needed       
-#    def get_read(self):
-#        '''load one read from the fastq file'''
-#        self.seq
-#        self.phred
-#        self.phred_nums
-=======
     def fastq(self, filename):
         '''load the fastq file and pass all the information with quality scores converted to Phred Values'''
 		# hard coded to take in only illumina scores but can be extended to work with others
@@ -22,8 +14,6 @@ class fastq_pysickle:
 			self.phred = record.letter_annotations["phred_quality"]
 			calculate_trim_adresses(self)
 			write_to_output(self)
->>>>>>> eea851315c25de7d6a2ba72fc6340cf9942e9319
-    
 
 #    def phred_id(self):
 #        '''determine the encoding of the phred score, and populate the dictionary

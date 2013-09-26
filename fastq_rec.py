@@ -2,8 +2,12 @@ from Bio import SeqIO
 from scipy import pandas as pd
 
 class fastq_pysickle:
-    def __init__:
-    
+    def __init__(self,infile, threshold, phred_type, window_size, outfile):
+        self.infile = infile
+        self.threshold = threshold
+        self.phred_type =phred_type
+        self.window_size = window_size
+        self.outfile = outfile
 
     def fastq(self, filename):
         '''load the fastq file and pass all the information with quality scores converted to Phred Values'''
@@ -34,7 +38,8 @@ class fastq_pysickle:
     def trim(self):
         '''use the calculated addresses to trim the fastq file'''
         
-    
+    def write_to_output(self)
+        '''write out this record to the
     
     
     
