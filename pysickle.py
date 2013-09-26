@@ -57,6 +57,6 @@ except IOError:
 
 # run through the file, record-by-record, trim according to params, and spit 
 # out the result
-pysickle = fastq_pysickle()
+pysickle = fastq_pysickle(infile, threshold, phred_type, window_size, outfile)
 
 
