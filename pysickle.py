@@ -12,13 +12,14 @@ average phred score (at that location) dropping below a user-specified
 threshold. If no output file is provided, output is written to stdout.
 '''
 
-import fastq_rec
+from fastq_rec import fastq_pysickle
 import sys
 
 ### ################# ###
 ### process arguments ### 
 ### ################# ###
-args = sys.argv[1:]
+args = sys.argv
+
 try:
     infile    = args[1]
 except:
@@ -49,13 +50,11 @@ except:
 # test infile exists, test file appropriate
 if infile[-6:] != '.fastq':
     raise IOError("this program requires a fastq file as input")
-try:
-    file_handle = open('infile')
-except IOError:
-    print 'Could not open input fastq file'
+
 
 # run through the file, record-by-record, trim according to params, and spit 
 # out the result
 pysickle = fastq_pysickle(infile, threshold, phred_type, window_size, outfile)
+pysickle.fastq()
 
 
