@@ -14,4 +14,4 @@ def trim_on_quality(filtered_numeric_quality_score, sequence, threshold):
     # trim the quality score, and the sequence based on the threshold quality
     
     # return a new sequence object that has been trimmed
-    
+    pass
