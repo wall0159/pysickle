@@ -4,7 +4,7 @@ help_str = '''
 HELP:
 #> pysickle infile (phred_type) (threshold) (window_size) (outfile)
 (bracketed arguments are optional)
-phred_type in [Illumina1.3|Illumina1.5|Illumina1.8|Solexa|Sanger]
+phred_type in [fastq-illumina|fastq-solexa|fastq-sanger|fastq]
 
 pysickle is a program to trim the 3' and 5' ends of a read based on the phred 
 score. A slinding window is used to determine the cut-off points, based on the

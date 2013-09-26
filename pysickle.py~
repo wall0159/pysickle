@@ -12,7 +12,6 @@ average phred score (at that location) dropping below a user-specified
 threshold. If no output file is provided, output is written to stdout.
 '''
 
-import pysickle_filter
 import fastq_rec
 import sys
 
