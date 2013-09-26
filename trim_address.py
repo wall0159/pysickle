@@ -12,7 +12,8 @@ phred_header = "+"
 qual = "!''*((((***+))%%%++)(%%%%).1***-+*''))**55CCF>>>>>>CCCCCCC65"
 
 def cut_reads(self_5_addr, self_3_addr, read, qual):
-	## given the strings 'read' and 'qual' will trim characters left and right characters.
+    ''' a given read and it's quality string will be from the 5' and 3' end based on the variables
+    self_5_addr and self_3_addr''' 
 	trimmed_read = read[self_5_addr:self_3_addr]
 	trimmed_qual = qual[self_5_addr:self_3_addr]
 	return trimmed_read, trimmed_qual
