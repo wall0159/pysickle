@@ -1,0 +1,12 @@
+1)"fastq" means Sanger style FASTQ files using PHRED scores and an ASCII 
+		offset of 33 (e.g. from the NCBI Short Read Archive and Illumina 1.8+).
+		These can potentially hold PHRED scores from 0 to 93.
+
+2) "fastq-sanger" is an alias for "fastq".
+3) "fastq-solexa" means old Solexa (and also very early Illumina) style FASTQ
+		files, using Solexa scores with an ASCII offset 64. These can hold Solexa
+		scores from -5 to 62.
+
+4) "fastq-illumina" means newer Illumina 1.3 to 1.7 style FASTQ files, using
+		PHRED scores but with an ASCII offset 64, allowing PHRED scores from 0
+		to 62.
